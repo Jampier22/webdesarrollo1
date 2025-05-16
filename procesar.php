@@ -10,13 +10,13 @@
         $correo = $_POST['correo'];
 
         // Preparamos una consulta SQL segura para insertar los datos
-        $consulta = $conexion->prepare("INSERT INTO estudiantes (nombre, correo) VALUES (?, ?)");
+        $consulta = $conexion->prepare("INSERT INTO inscripciones1 (nombre, correo) VALUES (?, ?)");
 
         // "ss" indica que se están enviando dos cadenas de texto (string, string)
         $consulta->bind_param("ss", $nombre, $correo);
 
         // Ejecutamos la consulta
-        if ($consulta->execute()) {
+        if ($consulta->execute()) { 
             // Si se insertó, redirigimos al usuario a la página de listar
               header("Location: listar.php");
         } else {
